@@ -50,7 +50,70 @@ for veg in vegetables:
 		labels = column_map[counter]
 		table_rows = row.text
 		my_data[labels] = table_rows
-		# x = row.text
 		print(my_data)
 
+for fru in fruit: 
+
+	data = fru.find_all('td')
+
+	counter = 0
+
+	print('--------------')
+
+	for row in data:
+		my_data = {}
+		counter = counter + 1 
+		labels = column_map[counter]
+		table_rows = row.text
+		my_data[labels] = table_rows
+		print(my_data)
+
+for herb in herbs: 
+
+	data = herb.find_all('td')
+
+	counter = 0
+
+	print('--------------')
+
+	for row in data:
+		my_data = {}
+		counter = counter + 1 
+		labels = column_map[counter]
+		table_rows = row.text
+		my_data[labels] = table_rows
+		print(my_data)
+
+for flower in flowers:
+
+	data = flower.find_all('td')
+
+	counter = 0
+
+	print('--------------')
+
+	for row in data:
+		my_data = {}
+		counter = counter + 1 
+		labels = column_map[counter]
+		table_rows = row.text
+		my_data[labels] = table_rows
+		print(my_data)
+
+for oth in other: 
+
+
+	data = oth.find_all('td')
+
+	counter = 0
+
+	print('--------------')
+
+	for row in data:
+		my_data = {}
+		counter = counter + 1 
+		labels = column_map[counter]
+		table_rows = row.text
+		my_data[labels] = table_rows
+		print(my_data)
 
