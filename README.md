@@ -1,5 +1,5 @@
 
-*this is a working in progress* 
+*WIP - work in progress* 
 
 # Companion planting dataset and network visualization
 
