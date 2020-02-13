@@ -1,4 +1,3 @@
-# WIP SCRIPT 
 
 from bs4 import BeautifulSoup
 import requests
@@ -23,97 +22,90 @@ column_map = {
 	4: "Helped by",
 	5: "Attracts",
 	6: "-Repels/+distracts",
-	7: "OP",
-	8: "Avoid",
-	9: "Comments",
+	7: "Avoid",
+	8: "Comments",
 }
 
 data = soup.find_all('tr')
 vegetables = data[1:45]
-fruit = data[46:56]
-herbs = data[57:90]
-flowers = data[91:112]
-other = data [113:117]
-
+# fruit = data[46:56]
+# herbs = data[57:90]
+# flowers = data[91:112]
+# other = data [113:117]
 
 for veg in vegetables:
+
+	my_data = {}
 
 	data = veg.find_all('td')
 
 	counter = 0
 
-	print('--------------')
-
 	for row in data:
-		my_data = {}
 		counter = counter + 1 
 		labels = column_map[counter]
 		table_rows = row.text
 		my_data[labels] = table_rows
-		print(my_data)
+	all_my_data.append(my_data)
 
-for fru in fruit: 
+# for fru in fruit: 
 
-	data = fru.find_all('td')
+# 	data = fru.find_all('td')
 
-	counter = 0
+# 	counter = 0
 
-	print('--------------')
+# 	for row in data:
+# 		my_data = {}
+# 		counter = counter + 1 
+# 		labels = column_map[counter]
+# 		table_rows = row.text
+# 		my_data[labels] = table_rows
 
-	for row in data:
-		my_data = {}
-		counter = counter + 1 
-		labels = column_map[counter]
-		table_rows = row.text
-		my_data[labels] = table_rows
-		print(my_data)
+# for herb in herbs: 
 
-for herb in herbs: 
+# 	data = herb.find_all('td')
 
-	data = herb.find_all('td')
+# 	counter = 0
 
-	counter = 0
+# 	for row in data:
+# 		my_data = {}
+# 		counter = counter + 1 
+# 		labels = column_map[counter]
+# 		table_rows = row.text
+# 		my_data[labels] = table_rows
 
-	print('--------------')
+# for flower in flowers:
 
-	for row in data:
-		my_data = {}
-		counter = counter + 1 
-		labels = column_map[counter]
-		table_rows = row.text
-		my_data[labels] = table_rows
-		print(my_data)
+# 	data = flower.find_all('td')
 
-for flower in flowers:
+# 	counter = 0
 
-	data = flower.find_all('td')
+# 	for row in data:
+# 		my_data = {}
+# 		counter = counter + 1 
+# 		labels = column_map[counter]
+# 		table_rows = row.text
+# 		my_data[labels] = table_rows
 
-	counter = 0
+# for oth in other: 
 
-	print('--------------')
+# 	data = oth.find_all('td')
 
-	for row in data:
-		my_data = {}
-		counter = counter + 1 
-		labels = column_map[counter]
-		table_rows = row.text
-		my_data[labels] = table_rows
-		print(my_data)
+# 	counter = 0
 
-for oth in other: 
+# 	for row in data:
+# 		my_data = {}
+# 		counter = counter + 1 
+# 		labels = column_map[counter]
+# 		table_rows = row.text
+# 		my_data[labels] = table_rows
 
 
-	data = oth.find_all('td')
+all_my_data.append(my_data)
+print(all_my_data)
 
-	counter = 0
+with open('companion_plants_veg.json', 'w') as f_object:
+	json.dump(all_my_data, f_object, indent=2)
+	print("Your file is now ready")
 
-	print('--------------')
-
-	for row in data:
-		my_data = {}
-		counter = counter + 1 
-		labels = column_map[counter]
-		table_rows = row.text
-		my_data[labels] = table_rows
-		print(my_data)
 
